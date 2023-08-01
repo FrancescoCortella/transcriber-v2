@@ -1,0 +1,3 @@
+pip install flask
+pip install -U openai-whisper
+pip install ffmpeg-python
