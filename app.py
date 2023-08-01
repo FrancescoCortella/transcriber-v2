@@ -2,7 +2,6 @@ import os
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import whisper
-from pathlib import Path
 
 app = Flask(__name__)
 
