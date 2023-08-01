@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import whisper
+from pathlib import Path
 
 app = Flask(__name__)
 
@@ -26,9 +27,10 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # Call the Azure Function API here to send the file for processing
-            model = whisper.load_model("base")
-            result = model.transcribe(str(filename))
-            return result["text"]
+            #model = whisper.load_model("base")
+            #result = model.transcribe(filename)
+            #return result["text"]
+            return filename
         else:
             return "Invalid file format. Allowed formats: " + ", ".join(app.config['ALLOWED_EXTENSIONS'])
 
